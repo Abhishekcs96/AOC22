@@ -1,12 +1,8 @@
 #!/usr/bin/env python3
 
 with open('file4.txt', mode='r') as f:
-    lines = [line.split() for line in f]
-    for i in lines:
-        for j in i:
-            mid = j.split(',')
-            print(mid)
-          #  x = leftPart.split('-')
-          #  print(x)
-          #  y = rightPart.split('-')
-          #  print(y)
+    lines = f.read().splitlines()
+    nline = [line.split(',') for line in lines]
+    for line in nline:
+        for i in line:
+
