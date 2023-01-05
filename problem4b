@@ -1,0 +1,44 @@
+#!/usr/bin/env python3
+
+'''
+    5-7,7-9 overlaps in a single section, 7.
+    2-8,3-7 overlaps all of the sections 3 through 7.
+    6-6,4-6 overlaps in a single section, 6.
+    2-6,4-8 overlaps in sections 4, 5, and 6.
+    4-7,11-15 does not overlap at all
+    3-6,7-9 does not overlap at all
+    2-8,3-6 overlaps everywhere
+    11-15,2-14
+    15-90, 91-92
+    75-92, 71-74 (89)
+    67-78, 56-61
+    7-9,8-9
+    10-24, 14-27
+    10-15, 16-17
+    16-17, 10-15
+    15-79, 14-78 #got caught in the condition below
+    10-16, 9-15
+'''
+
+
+sum = 0
+with open('file4.txt', mode = 'r') as f:
+    lines = f.read().splitlines()
+    lines = [line.split(',') for line in lines]
+    for line in lines:
+        print(line)
+        if int(line[0].split('-')[0]) > int(line[1].split('-')[1]) or int(line[0].split('-')[1]) < int(line[1].split('-')[0]):
+            print(line)
+        #elif int(line[0].split('-')[0]) < int(line[1].split('-')[0])
+        else:
+            sum += 1
+    print(sum)
+
+#        if int(line[0].split('-')[0]) < int(line[1].split('-')[0]) and int(line[0].split('-')[1]) < int(line[1].split('-')[1]) and int(line[0].split('-')[1]) < int(line[1].split('-')[0]):
+#            print(line, " Does not overlap at all")
+#        elif int(line[0].split('-')[0]) > int(line[1].split('-')[0]) and int(line[0].split('-')[1]) > int(line[1].split('-')[1]) and int(line[0].split('-')[1]) > int(line[1].split('-')[0]):
+#            print(line, " Does not overlap at all")
+#        else:
+#            sum += 1
+
+#    print(sum)
